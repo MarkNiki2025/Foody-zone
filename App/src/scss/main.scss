@@ -1,0 +1,67 @@
+$my-header-bg: #323334;
+$my-header-text: #FCFCFC;
+$my-primary: #BF9B34;
+
+@use '../../node_modules/bootstrap/scss/bootstrap' with (
+  $primary: #BF9B34
+);
+
+.header {
+  background-color: $my-header-bg;
+  min-height: 241px;
+}
+
+.search-input {
+  background-color: $my-header-bg;
+  color: $my-header-text;
+
+  &::placeholder {
+    color: $my-header-text;
+    opacity: 1;
+  }
+
+  &:focus {
+    background-color: $my-header-bg;
+    color: $my-header-text;
+  }
+}
+
+.main {
+  height:  calc(100vh - 180px);
+  background-image: url('/bg.png');
+  background-size: cover;
+  display: flex;
+  align-items: center;   // або flex-start, якщо не треба центрувати вертикально
+  justify-content: center;
+  padding: 2rem;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.card {
+  max-height: 175px;
+  overflow: hidden;
+  background: radial-gradient(
+    90.16% 143.01% at 15.32% 21.04%,
+    rgba(165, 239, 255, 0.2) 0%,
+    rgba(110, 191, 244, 0.0447917) 77.08%,
+    rgba(70, 144, 213, 0) 100%
+  );
+  backdrop-filter: blur(13.1842px);
+  -webkit-backdrop-filter: blur(13.1842px);
+  border-radius: 19.4467px;
+}
+
+.imgCard {
+  width: 133px;
+  height: 133px;
+  object-fit: cover;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-top: 1.5rem;
+}
+
