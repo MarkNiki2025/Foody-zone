@@ -27,13 +27,9 @@ $my-primary: #BF9B34;
 }
 
 .main {
-  height:  calc(100vh - 180px);
+  min-height: calc(100dvh - 212px);
   background-image: url('/bg.png');
   background-size: cover;
-  display: flex;
-  align-items: center;   // або flex-start, якщо не треба центрувати вертикально
-  justify-content: center;
-  padding: 2rem;
 }
 
 html, body, #root {
@@ -42,26 +38,41 @@ html, body, #root {
   height: 100%;
 }
 
-.card {
-  max-height: 175px;
-  overflow: hidden;
+body{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.price {
+  margin-top: auto;
+  text-align: right;
+}
+
+.search-wrap {
+  width: min(100%, 320px);
+}
+
+
+.gradient {
   background: radial-gradient(
     90.16% 143.01% at 15.32% 21.04%,
     rgba(165, 239, 255, 0.2) 0%,
     rgba(110, 191, 244, 0.0447917) 77.08%,
     rgba(70, 144, 213, 0) 100%
   );
+
   backdrop-filter: blur(13.1842px);
   -webkit-backdrop-filter: blur(13.1842px);
   border-radius: 19.4467px;
+
 }
 
 .imgCard {
-  width: 133px;
+  width: 140px;
   height: 133px;
-  object-fit: cover;
+  object-fit: contain;
   flex-shrink: 0;
-  flex-grow: 0;
-  margin-top: 1.5rem;
+  margin: 1rem 0 1rem 1rem;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');

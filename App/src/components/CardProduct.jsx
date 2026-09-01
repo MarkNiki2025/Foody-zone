@@ -1,8 +1,8 @@
-import {Card} from "react-bootstrap"
+import {Button, Card} from "react-bootstrap"
 
 export default function CardProduct ({ data, BASE_URL }) {
     return (
-        <Card className="d-flex flex-row rounded-4 card">
+        <Card className="d-flex flex-row align-items-center rounded-4 gradient mt-2" >
             <Card.Img src={BASE_URL + data?.image} alt={data?.name} className="imgCard"/>  
             <Card.Body>
                 <Card.Title className="text-white">{data?.name}</Card.Title>
@@ -10,7 +10,7 @@ export default function CardProduct ({ data, BASE_URL }) {
                     {data?.text}
                 </Card.Text>
                 <Card.Text className=" d-flex align-items-end justify-content-end text-white">
-                    <p className="bg-danger text-white p-1 rounded-3 ">${data?.price.toFixed(2)}</p>
+                    <Button className="price rounded-3" variant="danger">${data?.price.toFixed(2)}</Button>
                 </Card.Text>
             </Card.Body>
         </Card>
