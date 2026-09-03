@@ -2,29 +2,47 @@
 import SearchResult from "./SearchResult"
 import TopContainer from "./TopConteiner"
 import {  useEffect, useState } from "react"
-import { DATA_URL } from "../url"
+import { DATA_URL, localUrl } from "../url"
 function App() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [filteredData, setFilteredData] = useState(null);
   const [inputData, setInputData ] = useState(null);
+
+  async function downloadData (url) {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`)
+    }
+    const data = await response.json()
+    return data
+  }
+
   useEffect(() => {
     const fetchFoodData = async () => {
       try {
-        const response = await fetch(DATA_URL)
-        const data = await response.json()
+        const data = await downloadData(DATA_URL)
         setData(data)
         setFilteredData(data)
       } catch (error) {
-        console.error("Error fetching food data:", error)
-        setError(error)
+          try {
+            const localData = await downloadData(localUrl)
+            setData(localData)
+            setFilteredData(localData)
+          } catch (localError) {
+            console.error("Error fetching local food data:", localError)
+            console.error("Error fetching food data:", error)
+            setError(localError)
+          }
       } finally {
         setLoading(false)
       }
     } 
     fetchFoodData()
   }, [])
+
+
 
   function SearchFood (e) {
     const searchValues = e.target.value 
