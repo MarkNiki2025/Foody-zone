@@ -2,7 +2,7 @@
 import SearchResult from "./SearchResult"
 import TopContainer from "./TopConteiner"
 import {  useEffect, useState } from "react"
-export const DATA_URL = import.meta.env.VITE_API_URL ?? "http://localhost:9000"
+import { DATA_URL } from "../url"
 function App() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -74,5 +74,5 @@ function App() {
     </>
   )
 }
-
+export { DATA_URL }
 export default App
