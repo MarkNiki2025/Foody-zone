@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
       image: "https://foody-zone-qmza.onrender.com/images/egg.png",
       type: "breakfast",
+       test: "RENDER_NEW_CODE_123"
     },
     {
       name: "RAMEN",
