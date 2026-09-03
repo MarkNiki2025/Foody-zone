@@ -26,15 +26,9 @@ function App() {
         setData(data)
         setFilteredData(data)
       } catch (error) {
-          try {
-            const localData = await downloadData(localUrl)
-            setData(localData)
-            setFilteredData(localData)
-          } catch (localError) {
-            console.error("Error fetching local food data:", localError)
-            console.error("Error fetching food data:", error)
-            setError(localError)
-          }
+          console.log(error);
+          console.log(localUrl)
+          setError(error)
       } finally {
         setLoading(false)
       }
